@@ -22,17 +22,17 @@ router.get('/:action', function(req, res, next) {
 
   var params = { term: req.query.term, location: req.query.location }
 
-  yelp.search(params)
+  yelp.search({ term: req.query.term, location: req.query.location })
   .then(function(data) {
-    res.json({
-      confirmation: 'success',
-      data: JSON.parse(data)
-    })
+   
+    res.render('yelp', JSON.parse(data))
+    // res.json(JSON.parse(data))
   })
   .catch(function(err) {
     res.json({
       confirmation: 'fail',
-      message: err
+      message: 'err',
+      data: params
     })
   })
 })
