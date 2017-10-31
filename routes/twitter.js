@@ -35,11 +35,20 @@ router.get('/:action', function(req, res, next) {
   }
 
   client.get(path, params, function(error, tweets, response) {
-    if (!error) {
-      console.log(tweets)
+    if (error != null) {
+      res.render('twitter', {tweets: [{'text': 'No tweets found'}]})
+      console.log(error)
+
+      return
     }
 
-    res.json(tweets)
+    if (action == 'timeline')
+      res.render('twitter', {tweets: tweets})
+    
+    if (action == 'search')
+      res.render('twitter', {tweets: tweets.statuses})
+
+    // res.json({ tweets: tweets})
 
   })
 })
