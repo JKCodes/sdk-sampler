@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Yelp!</h1>
+  
+    {{#businesses}}
+      <span>{{ name }} --- <strong>{{ location.display_address }}</strong></span><br />
+    {{/businesses}}
+    
+  </body>
+</html>
