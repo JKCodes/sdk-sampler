@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
       return
     }
 
-    client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+    client.get('search/tweets', {q: search}, function(error, tweets, response) {
       res.json(tweets)
     })
 
