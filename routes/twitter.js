@@ -2,7 +2,18 @@ var express = require('express')
 var router = express.Router()
 var Twitter = require('twitter')
 
-function getClient() {
+router.get('/:action', function(req, res, next) {
+  
+  var actions = ['timeline', 'search']
+  var action = req.params.action
+  
+  if (actions.indexOf(action) == -1) {
+    res.json({
+      confirmation: 'fail',
+      message: 'Invalid resource'
+    })
+  }
+
   var client = new Twitter({
     consumer_key: 'JgC4F0tlzAAHA14Is7hjFccJa',
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -10,56 +21,27 @@ function getClient() {
     access_token_secret: process.env.TWITTER_ACCESS_SECRET
   })
 
-  return client
-}
+  var params = null
+  var path = null
 
-router.get('/:action', function(req, res, next) {
-  
-  var action = req.params.action
   if (action == 'timeline') {
-    var username = req.query.username
-    var client = getClient()
-
-    if (!username) {
-      res.json({
-        confirmation: 'fail',
-        message: 'No username detected'
-      })
-
-      return
-    }
-
-    var params = { screen_name: username}
-    client.get('statuses/user_timeline', params, function(error, tweets, response) {
-      if (!error) {
-        console.log(tweets)
-      }
-
-      res.json(tweets)
-
-    })
+    params = { screen_name: req.query.username }
+    path = 'statuses/user_timeline'
   }
 
-  if (action == 'search') {
-    var term = req.query.term
-    var client = getClient()
+  if (action == 'search'){
+    params = {q: req.query.term }
+    path = 'search/tweets'
+  }
 
-    if (!term) {
-      res.json({
-        confirmation: 'fail',
-        message: 'No term detected'
-      })
-
-      return
+  client.get(path, params, function(error, tweets, response) {
+    if (!error) {
+      console.log(tweets)
     }
 
-    client.get('search/tweets', {q: term}, function(error, tweets, response) {
-      res.json(tweets)
-    })
+    res.json(tweets)
 
-    return
-  }
-  
+  })
 })
 
 module.exports = router
