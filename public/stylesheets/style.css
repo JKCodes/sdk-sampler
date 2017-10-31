@@ -1,8 +1,37 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#title {
+  font-size: 64px;
 }
 
-a {
-  color: #00B7FF;
+.venue-box {
+  background: #f9f9f9;
+  margin-top: 16px;
+  padding: 16px;
+  color: #333;
+  border:1px solid #ddd;
+}
+
+.venue-box h2 {
+  margin: 0px;
+  font-family: Arial;
+}
+
+.venue-box img {
+  max-width: 100%;
+}
+
+.venue-box a {
+  color: #333;
+  text-decoration: none;
+}
+
+.venue-box p {
+  margin-bottom: 0px;
+}
+
+.venue-box p + p {
+  margin-top: 0px
+}
+
+.venue-box ul {
+  padding-left: 17px;
 }
