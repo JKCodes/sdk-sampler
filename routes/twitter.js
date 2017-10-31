@@ -43,10 +43,10 @@ router.get('/:action', function(req, res, next) {
     }
 
     if (action == 'timeline')
-      res.render('twitter', {tweets: tweets})
+      res.render('twitter', {title: params.screen_name, tweets: tweets})
     
     if (action == 'search')
-      res.render('twitter', {tweets: tweets.statuses})
+      res.render('twitter', {title: `Search Results for ${params.q}`, tweets: tweets.statuses})
 
     // res.json({ tweets: tweets})
 
