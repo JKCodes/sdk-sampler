@@ -15,8 +15,12 @@
   font-family: Arial;
 }
 
-.venue-box img {
-  max-width: 100%;
+.icon {
+  border-radius: 45px;
+  width: 90px;
+  height: 90px;
+  float: left;
+  margin-right: 16px;
 }
 
 .venue-box a {
