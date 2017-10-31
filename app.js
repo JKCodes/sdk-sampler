@@ -8,6 +8,7 @@ require('dotenv').config()
 
 var index = require('./routes/index')
 var twitter = require('./routes/twitter')
+var yelp = require('./routes/yelp')
 
 var app = express()
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
 app.use('/twitter', twitter)
+app.use('/yelp', yelp)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
