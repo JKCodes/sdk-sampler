@@ -22,6 +22,12 @@ router.get('/', function(req, res, next) {
 
       return
     }
+
+    client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
+      res.json(tweets)
+    })
+
+    return
   }
 
   var params = { screen_name: username}
