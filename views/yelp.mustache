@@ -6,11 +6,30 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-  
-    {{#data.businesses}}
-      <span>{{ name }} --- <strong>{{ location.display_address }}</strong></span><br />
-    {{/data.businesses}}
+    <div>
+      <h1>{{ title }}</h1>
     
+      {{#data.businesses}}
+      <div style="background:#f9f9f9;margin-top:16px;padding:16px;color:#333;border:1px solid #ddd">
+        <img style="max-width:100%" src="{{image_url}}" />
+        <h2 style="margin:0px;font-family:Arial">{{ name }}</h2>
+        <a target="_blank" style="color:#333;text-decoration:none" href="{{url}}">Yelp</a>
+        <p style="margin-bottom:0px">{{ location.display_address }}</p>
+        <p style="margin-top:0px">{{ display_phone }}</p>
+
+        <ul style="padding-left:17px">
+        {{#categories}}
+          <li>{{title}}</li>
+        {{/categories}}
+        </ol>
+
+        <form>
+          <h3>Contact Us</h3>
+          <input type="text" placeholder="Message" />
+          <input type="submit" value="Send" />
+        </form>
+      </div>
+      {{/data.businesses}}
+    </div>
   </body>
 </html>
