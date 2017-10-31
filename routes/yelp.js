@@ -30,11 +30,13 @@ router.get('/:action', function(req, res, next) {
       title: params.term + ' in ' + params.location
     }
 
+    if (req.query.format == 'json') {
+      res.json(parsedData)
+
+      return
+    }
+
     res.render('yelp', content)
-    // res.json({
-    //   confirmation: 'success',
-    //   data: content
-    // })
   })
   .catch(function(err) {
     res.json({
