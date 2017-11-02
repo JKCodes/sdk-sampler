@@ -7,19 +7,37 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-  
-    {{#tweets}}
-      <div class="tweet-box">
-        <img src={{user.profile_image_url}} />
 
-        {{ text }}
-        <br />
-        {{created_at}}
-        <br />
-        <a href="https://www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
+    <div class="container">
+
+      <h1>{{ title }}</h1>
+
+      <div class="col-sm-4">
+        Right side of the page
+       <form style="margin-bottom:12px">
+          <input type="text" style="margin-bottom:12px" placeholder="Search" class="form-control" />
+          <select style="margin-bottom:12px" class="form-control">
+            <option value="search">Search</option>
+            <option value="timeline">Timeline</option>
+          </select>
+          <input type="submit" value="Submit" class="btn btn-info" />
+        </form>
       </div>
-    {{/tweets}}
-    
+
+      <div class="col-sm-8">
+  
+        {{#tweets}}
+          <div class="tweet-box">
+            <img src={{user.profile_image_url}} />
+
+            {{ text }}
+            <br />
+            {{created_at}}
+            <br />
+            <a href="https://www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
+          </div>
+        {{/tweets}}
+      </div>
+    </div>    
   </body>
 </html>
