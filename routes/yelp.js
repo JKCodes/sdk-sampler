@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 var Yelp = require('yelp-api-v3')
 
-/* GET users listing. */
 router.get('/:action', function(req, res, next) {
   
   var actions = ['search']
