@@ -14,9 +14,21 @@ router.get('/:action', function(req, res, next) {
     })
   }
 
-  if (action == 'venue')
-    res.render(action, { title: 'Express' })
+  // action is venue
+  if (action == 'venue'){
+    var id = req.query.id
 
+    var data = {
+      venue: id
+    }
+
+    res.render(action, data)
+    
+    return
+  }
+
+
+  // action is search
   var yelp = new Yelp({
     app_id: process.env.YELP_APP_ID,
     app_secret: process.env.YELP_APP_SECRET
