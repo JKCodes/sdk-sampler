@@ -6,10 +6,10 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1 id=title>{{ title }}</h1>
+    <h1>{{ title }}</h1>
   
     {{#tweets}}
-      <span>{{ text }} @{{ user.screen_name }}</span><hr />
+      <div style="background: :#f9f9f9;padding:16px;margin-bottom:16px;border:1px solid #ddd">{{ text }}<br />{{created_at}}</div>
     {{/tweets}}
     
   </body>
