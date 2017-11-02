@@ -2,15 +2,9 @@ var express = require('express')
 var router = express.Router()
 var Yelp = require('yelp-api-v3')
 
-router.get('/:page', function(req, res, next) {
-  var page = req.params.page
-
-  res.render(page, { title: 'Express' })
-})
-
 router.get('/:action', function(req, res, next) {
   
-  var actions = ['search']
+  var actions = ['search', 'venue']
   var action = req.params.action
 
   if (actions.indexOf(action) == -1) {
@@ -19,6 +13,9 @@ router.get('/:action', function(req, res, next) {
       message: 'Invalid resource'
     })
   }
+
+  if (action == 'venue')
+    res.render(action, { title: 'Express' })
 
   var yelp = new Yelp({
     app_id: process.env.YELP_APP_ID,
