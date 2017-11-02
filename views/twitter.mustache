@@ -10,11 +10,13 @@
   
     {{#tweets}}
       <div class="tweet-box">
+        <img src={{user.profile_image_url}} />
+
         {{ text }}
         <br />
         {{created_at}}
         <br />
-        {{ user.screen_name }}
+        <a href="https://www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
       </div>
     {{/tweets}}
     
