@@ -39,3 +39,10 @@
 .venue-box ul {
   padding-left: 17px;
 }
+
+.tweet-box {
+  background: :#f9f9f9;
+  padding: 16px;
+  margin-bottom: 16px;
+  border:1px solid #ddd;
+}

@@ -9,7 +9,13 @@
     <h1>{{ title }}</h1>
   
     {{#tweets}}
-      <div style="background: :#f9f9f9;padding:16px;margin-bottom:16px;border:1px solid #ddd">{{ text }}<br />{{created_at}}</div>
+      <div class="tweet-box">
+        {{ text }}
+        <br />
+        {{created_at}}
+        <br />
+        {{ user.screen_name }}
+      </div>
     {{/tweets}}
     
   </body>
