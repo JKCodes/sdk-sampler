@@ -6,9 +6,13 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/:page', function(req, res, next) {
-  console.log(JSON.stringify(req.body))
 
-  res.json(req.body)
+  var query = req.body.query
+  var type = req.body.type
+
+  var url = '/twitter/search?term=nba'
+  res.redirect(url)
+
 })
 
 module.exports = router
