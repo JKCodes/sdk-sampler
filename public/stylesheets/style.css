@@ -46,3 +46,11 @@
   margin-bottom: 16px;
   border:1px solid #ddd;
 }
+
+.tweet-box img {
+  float: left;
+  margin-right: 17px;
+  background: #fff;
+  padding: 3px;
+  border: 1px solid #ddd;
+}
