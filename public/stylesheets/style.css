@@ -2,6 +2,14 @@
   font-size: 64px;
 }
 
+.icon {
+  border-radius: 45px;
+  width: 90px;
+  height: 90px;
+  float: left;
+  margin-right: 16px;
+}
+
 .venue-box {
   background: #f9f9f9;
   margin-top: 16px;
@@ -13,14 +21,6 @@
 .venue-box h2 {
   margin: 0px;
   font-family: Arial;
-}
-
-.icon {
-  border-radius: 45px;
-  width: 90px;
-  height: 90px;
-  float: left;
-  margin-right: 16px;
 }
 
 .venue-box a {
