@@ -13,9 +13,9 @@
       <h1>{{ title }}</h1>
 
       <div class="col-sm-4">
-       <form class="search-form">
-          <input type="text" placeholder="Search" class="form-control" />
-          <select class="form-control">
+       <form action="/twitter" method="post" class="search-form">
+          <input type="text" name="query" placeholder="Query" class="form-control" />
+          <select class="form-control" name="type">
             <option value="search">Search</option>
             <option value="timeline">Timeline</option>
           </select>
