@@ -54,3 +54,15 @@
   padding: 3px;
   border: 1px solid #ddd;
 }
+
+.search-form {
+  margin-bottom: 12px;
+}
+
+.search-form select {
+  margin-bottom: 12px;
+}
+
+.search-form input {
+  margin-bottom: 12px;
+}
