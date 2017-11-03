@@ -3,9 +3,29 @@ var router = express.Router()
 var Twitter = require('twitter')
 
 router.get('/', function(req, res, next) {
+  var id = req.query.id
+  var format = req.query.format
+  if (format == null)
+    format = "html"
 
-  res.render('tweet', "")
+  var client = new Twitter({
+    consumer_key: 'JgC4F0tlzAAHA14Is7hjFccJa',
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: '54285575-g7DJmwkxRIKmJHpAVlxsypqhwbYZykPNzYtBTWmNI',
+    access_token_secret: process.env.TWITTER_ACCESS_SECRET
+  })
 
+  var url = 'statuses/show/' + id
+  var params = {}
+
+  client.get(url, params, function(error, tweets, response) {
+    console.log(JSON.stringify(tweets))
+    if (format == 'json') {
+      res.json(tweets)
+    } else {
+      res.render('tweet', tweets)
+    }
+  })
 })
 
 router.get('/:action', function(req, res, next) {
