@@ -29,23 +29,15 @@ router.get('/:action', function(req, res, next) {
     yelp.business(id)
     .then(function(data) {
       var parsedData = JSON.parse(data)
-      console.log(parsedData) 
       if (format == 'json')
         res.json(parsedData)
       else
         res.render(action, parsedData)
     })
     .catch(function(err) { 
-      console.log(err)
       res.render('error', err) 
     })
 
-    // var data = {
-    //   venue: id
-    // }
-
-    // res.render(action, data)
-    
     return
   }
 

@@ -16,9 +16,9 @@
         <a target="_blank" href="{{url}}">Yelp</a>
 
         <h3>Address</h3>
-        <p>{{ location.display_address.0 }}</p>
-        <p>{{ location.display_address.1 }}</p>
-        <p>{{ location.display_address.2 }}</p>
+        {{#location.display_address}}
+          <p>{{.}}</p>
+        {{/location.display_address}}
         <p>{{ display_phone }}</p>
 
         <h3>Categories</h3>
