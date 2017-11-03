@@ -6,6 +6,9 @@ router.get('/:action', function(req, res, next) {
   
   var actions = ['search', 'venue']
   var action = req.params.action
+  var format = req.query.format
+  if (format == null)
+    format = "html"
 
   if (actions.indexOf(action) == -1) {
     res.json({
@@ -14,26 +17,40 @@ router.get('/:action', function(req, res, next) {
     })
   }
 
+  var yelp = new Yelp({
+    app_id: process.env.YELP_APP_ID,
+    app_secret: process.env.YELP_APP_SECRET
+  })
+
   // action is venue
-  if (action == 'venue'){
+  if (action == 'venue') {
     var id = req.query.id
 
-    var data = {
-      venue: id
-    }
+    yelp.business(id)
+    .then(function(data) {
+      var parsedData = JSON.parse(data)
+      console.log(parsedData) 
+      if (format == 'json')
+        res.json(parsedData)
+      else
+        res.render(action, parsedData)
+    })
+    .catch(function(err) { 
+      console.log(err)
+      res.render('error', err) 
+    })
 
-    res.render(action, data)
+    // var data = {
+    //   venue: id
+    // }
+
+    // res.render(action, data)
     
     return
   }
 
 
   // action is search
-  var yelp = new Yelp({
-    app_id: process.env.YELP_APP_ID,
-    app_secret: process.env.YELP_APP_SECRET
-  })
-
   var params = { term: req.query.term, location: req.query.location }
 
   yelp.search({ term: req.query.term, location: req.query.location })
@@ -44,7 +61,7 @@ router.get('/:action', function(req, res, next) {
       title: params.term + ' in ' + params.location
     }
 
-    if (req.query.format == 'json') {
+    if (format == 'json') {
       res.json(parsedData)
 
       return
