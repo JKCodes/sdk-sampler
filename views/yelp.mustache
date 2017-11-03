@@ -14,7 +14,11 @@
         <img class="icon" src="{{image_url}}" />
         <h2><a href="/yelp/venue?id={{ id }}">{{ name }}</a></h2>
         <a target="_blank" href="{{url}}">Yelp</a>
-        <p>{{ location.display_address }}</p>
+
+        <h3>Address</h3>
+        <p>{{ location.display_address.0 }}</p>
+        <p>{{ location.display_address.1 }}</p>
+        <p>{{ location.display_address.2 }}</p>
         <p>{{ display_phone }}</p>
 
         <h3>Categories</h3>

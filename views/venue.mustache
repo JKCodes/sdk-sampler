@@ -5,6 +5,11 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h2>Venue: {{ venue }}</h1>
+    <img src="{{image_url}}" />
+    <h2>{{ name }}</h2>
+    phone: {{ display_phone }}<br />
+    {{ location.display_address.0 }}<br />
+    {{ location.display_address.1 }}<br />
+    {{ location.display_address.2 }}
   </body>
 </html>

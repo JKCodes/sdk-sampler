@@ -3,9 +3,9 @@
 }
 
 .icon {
-  border-radius: 45px;
-  width: 90px;
-  height: 90px;
+  border-radius: 35px;
+  width: 70px;
+  height: 70px;
   float: left;
   margin-right: 16px;
 }
@@ -19,8 +19,14 @@
 }
 
 .venue-box h2 {
-  margin: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   font-family: Arial;
+}
+
+.venue-box h3 {
+  margin-top: 25px;
+  margin-bottom: 0px;
 }
 
 .venue-box a {
@@ -29,6 +35,7 @@
 }
 
 .venue-box p {
+  margin-top: 5px;
   margin-bottom: 0px;
 }
 
