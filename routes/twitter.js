@@ -2,6 +2,12 @@ var express = require('express')
 var router = express.Router()
 var Twitter = require('twitter')
 
+router.get('/', function(req, res, next) {
+
+  res.render('tweet', "")
+
+})
+
 router.get('/:action', function(req, res, next) {
   
   var actions = ['timeline', 'search']
